@@ -2,4 +2,12 @@
 .app{
     font-family: Comic Sans MS;
     margin: 0;
+    overflow-x: hidden;
+}
+
+.btn:hover{
+    box-shadow: 0px 15px 20px rgba(122,22,19,1);;
+    transform: translateY(-5px);
+    background-color: white;
+    color: black;
 }

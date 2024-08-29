@@ -1,7 +1,14 @@
 <form class="row searchform">
     <h5 class="col-md-12">Procurar Filmes</h5>
     <div class="form-group col-sm-10">
-      <input  type="text" class="form-control" name="setSearch" placeholder="Nome">
+      <input [(ngModel)]="movieToSearch" type="text" class="form-control" name="setSearch" placeholder="Nome">
     </div>
-    <button class="btn btn-primary col-sm-2" type="button">Buscar</button>
+    <button class="btn btn-primary col-sm-2" type="button" (click)="searchMovieApi()">Buscar</button>
 </form>
+
+<app-movie-display [movies]="movies"></app-movie-display>
+
+<div *ngIf="totalPages > 1">
+  <button mat-raised-button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <button mat-raised-button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
