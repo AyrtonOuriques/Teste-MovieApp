@@ -1,0 +1,73 @@
+.movieposter{
+    width: 20vw;
+}
+
+.container{
+    padding-top: 5rem;
+    margin: 0;
+}
+
+.backdrop{
+    position: absolute;
+    z-index: -1;
+    width: 70vw;
+    left: 25vw;
+    bottom: 6vh;
+    opacity: 0.5;
+}
+
+.text{
+    color: rgb(26, 26, 88);
+    margin-top: 10px;
+}
+
+
+.single-chart {
+    width: 20%;
+    justify-content: space-around ;
+}
+
+.circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 85%;
+    max-height: 250px;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+0% {
+    stroke-dasharray: 0 100;
+}
+}
+
+.circular-chart.orange .circle {
+    stroke: #ff9f00;
+}
+
+.circular-chart.green .circle {
+    stroke: #28e467;
+}
+
+.circular-chart.red .circle {
+    stroke: #df0f0f;
+}
+
+.percentage {
+    fill: #070707;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+}

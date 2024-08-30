@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-display',
@@ -7,5 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieDisplayComponent {
   @Input() movies: any[] = [];
+
+  constructor(private router: Router) {}
   
+  goToMovieDetails(movieId: number) {
+    this.router.navigate(['/movie', movieId]);
+  }
+
 }
