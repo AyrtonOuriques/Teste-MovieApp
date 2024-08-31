@@ -32,6 +32,9 @@
                         </svg>
                     </div>
                     <p style="width: 10%; margin-top: 5vh;">User Score</p>
+                    <button class="heart-button" [class.clicked]="isClicked" (click)="heartToggle()">
+                        <span class="heart"></span>
+                    </button>
                 </div>
                 <div class = "text">
                     <p >{{getMovieCast()}}</p>

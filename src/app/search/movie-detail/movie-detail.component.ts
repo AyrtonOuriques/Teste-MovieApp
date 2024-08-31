@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TmdbService } from '../../tmdb.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -11,9 +12,6 @@ import { TmdbService } from '../../tmdb.service';
       display: flex;
       justify-content: center;
       height: 85vh;
-      background-color: black;
-      z-index: -1;
-      position: relative;
     }
   `]
   
@@ -22,9 +20,14 @@ export class MovieDetailComponent implements OnInit{
 
   movieDetails: any;
   movieCredits: any;
+
   vote_average: number = 0;
 
-  constructor(private route: ActivatedRoute, private tmdbService: TmdbService) {}
+  favoriteMovieId: number | null = null;
+
+  isClicked = false;
+
+  constructor(private route: ActivatedRoute, private tmdbService: TmdbService, private authService: AuthService) {}
 
   ngOnInit() {
     const movieId = this.route.snapshot.paramMap.get('id');
@@ -36,6 +39,7 @@ export class MovieDetailComponent implements OnInit{
         this.movieDetails = movieDetails;
         this.movieCredits = movieCredits;
         this.vote_average = Math.round(movieDetails.vote_average*10);
+        this.checkIfMovieIsFavorited(); 
       });
     }
   }
@@ -50,9 +54,70 @@ export class MovieDetailComponent implements OnInit{
   }
 
   getMovieDirector() {
-    return this.movieCredits.crew.find((element: any) => element.known_for_department === "Directing").name
+    return this.movieCredits.crew.find((element: any) => element.job === "Director").name
   }
 
+
+
+  heartToggle() {
+    if (this.authService.checkAuth('')) {
+      this.isClicked = !this.isClicked;
+      if (this.isClicked) {
+        this.addToFavorites();
+      } else {
+        this.removeFromFavorites();
+      }
+    }
+  }
+
+  checkIfMovieIsFavorited() {
+    this.authService.getFavoriteMovies().subscribe(
+      favoriteMovies => {
+        console.log(favoriteMovies)
+        const favoriteMovie = favoriteMovies.find((movie: any) => movie.movieId === this.movieDetails.id);
+        if (favoriteMovie) {
+          this.isClicked = true;
+          this.favoriteMovieId = favoriteMovie.id; // Store the ID for later removal
+        }
+      },
+      error => {
+        console.error('Failed to fetch favorite movies', error);
+      }
+    );
+  }
+
+  addToFavorites() {
+    const movieData = {
+      movieId: this.movieDetails.id,
+      title: this.movieDetails.title,
+      release_date: this.movieDetails.release_date,
+      poster_path: this.movieDetails.poster_path  
+    };
+
+    this.authService.addFavoriteMovie(movieData).subscribe(
+      response => {
+        console.log('Movie added to favorites', response);
+        this.favoriteMovieId = response.id;
+      },
+      error => {
+        console.error('Failed to add movie to favorites', error);
+      }
+    );
+  }
+
+  removeFromFavorites() {
+    if (this.favoriteMovieId) {
+      this.authService.removeFavoriteMovie(this.favoriteMovieId).subscribe(
+        response => {
+          console.log('Movie removed from favorites', response);
+          this.favoriteMovieId = null;
+        },
+        error => {
+          console.error('Failed to remove movie from favorites', error);
+        }
+      );
+    }
+  }
   
   getCircleColor() {
     if (this.vote_average >= 70) {
