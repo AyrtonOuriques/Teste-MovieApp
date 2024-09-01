@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   movieToSearch: string = '';
   movies: any[] = [];
   totalPages: number = 0;
   currentPage: number = 1;
 
-  constructor(private tmdbService: TmdbService) {}
+  constructor(private tmdbService: TmdbService, private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const query = this.route.snapshot.paramMap.get('query');
+    if (query != null) {
+      this.movieToSearch = query;
+      this.router.navigate(['/search', this.movieToSearch]);
+      this.searchMovieApi();
+    }
+  }
 
   searchMovieApi() {
     this.tmdbService.searchMovies(this.movieToSearch, this.currentPage).subscribe((data) => {
@@ -21,6 +31,7 @@ export class SearchComponent {
       this.currentPage = data.page;
       this.totalPages = data.total_pages;
     });
+    this.router.navigate(['/search', this.movieToSearch]);
   }
 
   nextPage() {
