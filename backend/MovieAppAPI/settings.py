@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app' , '2fea-2804-1b1-220c-5a64-90f7-96b5-4fb8-8da.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app' , 'emerging-dynamic-opossum.ngrok-free.app ']
 
 
 # Application definition
@@ -141,7 +141,7 @@ REST_FRAMEWORK = {
 # CORS settingss
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:4200', 'https://teste-movie-app.vercel.app',
+    'http://localhost:4200', 'https://teste-movie-app.vercel.app'
 )
 
 SIMPLE_JWT = {
