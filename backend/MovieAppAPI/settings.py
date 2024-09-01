@@ -138,7 +138,7 @@ REST_FRAMEWORK = {
     ),
 }
 
-# CORS settings
+# CORS settingss
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200', 'teste-movie-app.vercel.app',
@@ -152,5 +152,5 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-STATICFILES_DIRS = [BASE_DIR/'static',]
-STATIC_ROOT = BASE_DIR/'staticfiles'
+STATICFILES_DIRS = [BASE_DIR/'backend/static',]
+STATIC_ROOT = BASE_DIR/'backend/staticfiles'
