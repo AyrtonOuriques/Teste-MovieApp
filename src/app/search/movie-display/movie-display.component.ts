@@ -9,12 +9,14 @@ import { AuthService } from '../../auth.service';
 })
 export class MovieDisplayComponent implements OnInit {
   @Input() movies: any[] = [];
+  removeFlag: number = 0;
 
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
 
     if (this.router.url === '/favorite-movies') {
+      this.removeFlag = 1;
       this.authService.getFavoriteMovies().subscribe(
         favoriteMovies => {
           console.log(favoriteMovies)

@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 .app{
-    font-family: Comic Sans MS;
+    font-family:'Times New Roman', Times, serif;
     margin: 0;
     overflow-x: hidden;
+    background-image: url("background.webp");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size:auto;
+    background-position:center;
+} 
+
+html {
+    font-size : 1.25rem;
+}
+
+.btn{
+    transition: all 0.3s ease 0s;
+
 }
 
 .btn:hover{

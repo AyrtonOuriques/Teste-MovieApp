@@ -1,0 +1,46 @@
+.login-container {
+    max-width: 30vw;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+  
+div {
+    margin-bottom: 1em;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+label {
+    margin-bottom: .5em;
+    color: white;
+}
+
+input {
+    padding: .5em;
+    font-size: 1em;
+    width: 100%;
+
+}
+
+
+.btn{
+    transition: all 0.3s ease 0s;
+    background-color: transparent;
+}
+
+
+.btn-primary{
+    background-color: #9b0000;
+    border: 0;
+}
+
+
+@media (max-width: 576px) {
+    .login-container {
+        max-width: 50vw;  /* Adjust height for tablets */
+    }
+
+}

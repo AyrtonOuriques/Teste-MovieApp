@@ -5,6 +5,19 @@
     
 }
 
+.btn-primary{
+    background-image: url("../../wood.jpg");
+    border: 0;
+}
+
+.btn:hover{
+    color: white
+}
+
+.home{
+    width: 300px;
+}
+
 .mat-icon{
     width: 40px;
     height: 40px;

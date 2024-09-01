@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent {
   username = '';
   password = '';
 
-  constructor(private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private authService: AuthService, private route: ActivatedRoute ,  private router: Router) { }
 
   login() {
     const returnUrl = this.route.snapshot.queryParams['returnUrl'];
@@ -21,5 +21,9 @@ export class LoginComponent {
       },
       error => console.error('Login failed', error)
     );
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
 }

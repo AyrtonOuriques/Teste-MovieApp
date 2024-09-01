@@ -1,11 +1,11 @@
 <div class="row" style=" margin-top: 5rem; justify-content: center;">
-    <div class="block col-md-2 center" *ngFor="let movie of movies; let i = index">
+    <div class="block col-xl-2 col-lg-3 col-sm-5" *ngFor="let movie of movies; let i = index">
         <div class="card btn" (click)="goToMovieDetails(i)">
             <img *ngIf="movie.poster_path" class="card-img-top" [src]= '"https://image.tmdb.org/t/p/original/"+ movie.poster_path' alt="Card image cap">
             <div class="card-body row" style="text-align: left;">
               <h5 class="card-title col-md-12">{{movie.title}}</h5>
               <p class="card-text col-md-10" >Data de Lançamento: {{movie.release_date}}</p>
-              <div class="btn btn-primary col-sm-2" (click)="removeMovie($event,i)"><mat-icon >close</mat-icon></div>
+              <div *ngIf="removeFlag" class="btn btn-primary col-sm-2" (click)="removeMovie($event,i)"><mat-icon >close</mat-icon></div>
             </div>
         </div>
     </div>
