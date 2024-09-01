@@ -16,11 +16,11 @@
     ],
     "routes": [
       {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
+        "src": "backend/static/(.*)",
+        "dest": "backend/static/$1"
       },
       {
-        "src": "/(.*)",
+        "src": "backend/(.*)",
         "dest": "backend/MovieAppAPI/wsgi.py"
       }
     ]
