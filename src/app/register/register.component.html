@@ -1,10 +1,13 @@
-<form class="row searchform">
-    <h5 class="col-md-12">Procurar Filmes</h5>
-    <div class="form-group col-sm-5">
-      <input [(ngModel)]="username" type="text" class="form-control" name="setSearch" placeholder="Nome">
+<div class="login-container">
+  <form>
+    <div>
+      <label for="username">Choose Username</label>
+      <input [(ngModel)]="username" name="username">
     </div>
-    <div class="form-group col-sm-5">
-        <input [(ngModel)]="password" type="text" class="form-control" name="setSearch" placeholder="Nome">
-      </div>
-    <button class="btn btn-primary col-sm-2" type="button" (click)="register()">Buscar</button>
-</form>
+    <div>
+      <label for="password">Choose Password</label>
+      <input  [(ngModel)]="password" type="password" name="password">
+    </div>
+    <button class="btn btn-primary" type="submit" (click)="register()">Register</button>
+  </form>
+</div>

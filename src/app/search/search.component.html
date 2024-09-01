@@ -1,9 +1,10 @@
-<form class="row searchform">
-    <h5 class="col-md-12">Procurar Filmes</h5>
-    <div class="form-group col-sm-10">
+
+<form style="justify-content: center; text-align: center;margin-top: 50px;" class="row searchform">
+    <h5 class="col-md-12 text">Procurar Filmes</h5>
+    <div class="form-group col-md-4">
       <input [(ngModel)]="movieToSearch" type="text" class="form-control" name="setSearch" placeholder="Nome">
     </div>
-    <button class="btn btn-primary col-sm-2" type="button" (click)="searchMovieApi()">Buscar</button>
+    <button class="btn btn-primary col-md-2" type="button" (click)="searchMovieApi()">Buscar</button>
 </form>
 
 <app-movie-display [movies]="movies"></app-movie-display>

@@ -11,7 +11,7 @@ import { MovieDisplayComponent } from './search/movie-display/movie-display.comp
 import { MovieDetailComponent } from './search/movie-detail/movie-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     FormsModule,
     MatIconModule,
   ],
-  providers: [provideHttpClient(), provideAnimationsAsync('noop')],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

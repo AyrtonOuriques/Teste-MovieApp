@@ -37,7 +37,6 @@ export class AuthService {
       }),
       catchError(error => {
         console.error('Token refresh failed', error);
-        this.logout();  // Log out if refresh fails
         return throwError(error);
       })
     );

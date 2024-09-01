@@ -1,7 +1,9 @@
 <div class="container">
-    <img class="backdrop" [src]= '"https://image.tmdb.org/t/p/original/"+ movieDetails.backdrop_path' alt="backdrop" />
+    <div class="backdrop-wrapper">
+        <img class="backdrop" [src]='"https://image.tmdb.org/t/p/original/"+ movieDetails.backdrop_path' alt="backdrop" />
+    </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 moviepostercontainer">
             <img class="movieposter" [src]= '"https://image.tmdb.org/t/p/original/"+ movieDetails.poster_path' alt="poster" />
         </div>
         <div class="col-md-6">
@@ -31,7 +33,7 @@
                           <text x="18" y="20.35" class="percentage">{{this.vote_average}}%</text>
                         </svg>
                     </div>
-                    <p style="width: 10%; margin-top: 5vh;">User Score</p>
+                    <p  class="text scoretext">User Score</p>
                     <button class="heart-button" [class.clicked]="isClicked" (click)="heartToggle()">
                         <span class="heart"></span>
                     </button>
