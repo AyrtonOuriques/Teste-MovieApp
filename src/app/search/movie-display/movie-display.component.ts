@@ -44,7 +44,7 @@ export class MovieDisplayComponent implements OnInit {
   }
 
   goToMovieDetails(index: number) {
-    if (this.router.url === '/favorite-movies') {
+    if (this.router.url === '/favorite-movies' || this.router.url.startsWith('/public/')) {
       this.router.navigate(['/movie',  this.movies[index].movieId]);
     }
     else{
@@ -52,4 +52,8 @@ export class MovieDisplayComponent implements OnInit {
     }
   }
 
+  getSharedLink(): string {
+    const currentUser = "/public/" + this.authService.getCurrentUserName();
+    return (window.location.href.replace('/favorite-movies',currentUser ))
+  }
 }

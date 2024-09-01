@@ -40,7 +40,7 @@ input {
 
 @media (max-width: 576px) {
     .login-container {
-        max-width: 50vw;  /* Adjust height for tablets */
+        max-width: 50vw;
     }
 
 }

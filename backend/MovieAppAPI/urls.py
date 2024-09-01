@@ -34,6 +34,7 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('register/', views.RegisterView.as_view(), name='register'),
+     path('public-favorite-movies/<str:username>/', views.public_favorite_movies, name='public_favorite_movies'),
     path('', include(router.urls)),
 ]
 

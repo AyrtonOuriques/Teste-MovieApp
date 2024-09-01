@@ -39,7 +39,9 @@ export class MovieDetailComponent implements OnInit{
         this.movieDetails = movieDetails;
         this.movieCredits = movieCredits;
         this.vote_average = Math.round(movieDetails.vote_average*10);
-        this.checkIfMovieIsFavorited(); 
+        if (localStorage.getItem('token')){
+          this.checkIfMovieIsFavorited(); 
+        }
       });
     }
   }
@@ -77,7 +79,7 @@ export class MovieDetailComponent implements OnInit{
         const favoriteMovie = favoriteMovies.find((movie: any) => movie.movieId === this.movieDetails.id);
         if (favoriteMovie) {
           this.isClicked = true;
-          this.favoriteMovieId = favoriteMovie.id; // Store the ID for later removal
+          this.favoriteMovieId = favoriteMovie.id; 
         }
       },
       error => {
