@@ -13,7 +13,7 @@ export interface JwtResponse {
 })
 export class AuthService {
 
-  private apiUrl = 'http://127.0.0.1:8000';
+  private apiUrl = 'https://2fea-2804-1b1-220c-5a64-90f7-96b5-4fb8-8da.ngrok-free.app';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
