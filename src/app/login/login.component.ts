@@ -18,6 +18,7 @@ export class LoginComponent {
     this.authService.login(this.username, this.password, returnUrl).subscribe(
       response => {
         console.log('User logged in successfully', response);
+        this.authService.setCurrentUser(this.username)
       },
       error => console.error('Login failed', error)
     );
