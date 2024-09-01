@@ -1,6 +1,6 @@
 .movieposter{
-    width: 100%;  /* Full width on smaller screens */
-    max-width: 380px;  /* Maximum width for larger screens */
+    width: 100%;  
+    max-width: 380px;  
     height: auto;
 }
 
@@ -11,18 +11,18 @@
 
 .backdrop-wrapper {
     position: absolute;
-    width: 100%;  /* Full width to ensure it scales with the screen */
-    height: 80vh;  /* Adjust height to half the viewport height for responsiveness */
+    width: 100%;  
+    height: 80vh; 
     left: 0;
     top: 0;
     overflow: hidden;
     z-index: -2;
-    background-color: black;  /* Ensures the background is consistent */
+    background-color: black;  
 }
 
 .backdrop {
-    width: 100%;  /* Full width for responsiveness */  /* Full height of the wrapper */
-    object-fit: cover;  /* Ensures the image covers the entire area */
+    width: 100%;  
+    object-fit: cover;  
     opacity: 0.5;
 }
 
@@ -117,15 +117,15 @@
 
 @media (max-width: 768px) {
     .backdrop {
-        height: 100%;  /* Adjust height for tablets */
+        height: 100%;  
     }
 
     .backdrop-wrapper {
-        height: 70vh;  /* Adjust height for tablets */
+        height: 70vh; 
     }
 
     .movieposter {
-        max-width: 300px;  /* Adjust max-width for smaller screens */
+        max-width: 300px; 
     }
 
     .heart{
@@ -139,15 +139,15 @@
 
 @media (max-width: 576px) {
     .backdrop {
-        height: 100%;  /* Adjust height for tablets */
+        height: 100%;
     }
 
     .backdrop-wrapper {
-        height: 50vh;  /* Further adjust height for mobile screens */
+        height: 50vh;  
     }
 
     .movieposter {
-        max-width: 250px;  /* Smaller poster size for mobile */
+        max-width: 250px; 
     }
 
     .heart{

@@ -11,6 +11,8 @@ import { MovieDisplayComponent } from './search/movie-display/movie-display.comp
 import { MovieDetailComponent } from './search/movie-detail/movie-detail.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { PublicComponent } from './public/public.component';
+import { ClipboardModule } from 'ngx-clipboard';
 
 
 @NgModule({
@@ -21,13 +23,15 @@ import { LoginComponent } from './login/login.component';
     MovieDisplayComponent,
     MovieDetailComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    PublicComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     MatIconModule,
+    ClipboardModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
