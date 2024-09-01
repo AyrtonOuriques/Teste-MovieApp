@@ -21,7 +21,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "<projectname>/wsgi.py"
+        "dest": "backend/MovieAppAPI/wsgi.py"
       }
     ]
   }
