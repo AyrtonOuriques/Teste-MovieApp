@@ -8,13 +8,15 @@ import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { MovieDisplayComponent } from './search/movie-display/movie-display.component';
+import { MovieDetailComponent } from './search/movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SearchComponent,
-    MovieDisplayComponent
+    MovieDisplayComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,

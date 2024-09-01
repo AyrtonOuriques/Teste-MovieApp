@@ -20,7 +20,7 @@ pids
 lib-cov
 
 # Visual Studio Code
-/vscode/*
+.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -28,7 +28,7 @@ lib-cov
 .history/*
 
 # Miscellaneous
-/angular/*
+.angular/cache/
 .sass-cache/
 /connect.lock
 /coverage
