@@ -10,18 +10,18 @@
         "src": "backend/build_files.sh",
         "use": "@vercel/static-build",
         "config": {
-          "distDir": "staticfiles"
+          "distDir": "backend/staticfiles"
         }
       }
     ],
-    "routes": [
-      {
-        "src": "backend/static/(.*)",
-        "dest": "backend/static/$1"
-      },
-      {
-        "src": "backend/(.*)",
-        "dest": "backend/MovieAppAPI/wsgi.py"
-      }
-    ]
+  "routes": [
+    {
+      "src": "backend/static/(.*)",
+      "dest": "/backend/staticfiles/$1"
+    },
+    {
+      "src": "backend/(.*)",
+      "dest": "backend/MovieAppAPI/wsgi.py"
+    }
+  ]
   }
