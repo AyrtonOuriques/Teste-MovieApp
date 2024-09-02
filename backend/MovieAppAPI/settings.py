@@ -153,6 +153,7 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOW_HEADERS = [
+    'content-type'
     'ngrok-skip-browser-warning',  
     'Authorization',  
 ]
