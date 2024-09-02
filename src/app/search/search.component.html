@@ -1,15 +1,18 @@
 
 <form  class="row searchform">
-    <h5 class="col-md-12 text">Procurar Filmes</h5>
+    <h5 class="col-md-12 text">Search movies</h5>
     <div class="form-group col-md-4" style="margin-top: 10px;">
-      <input [(ngModel)]="movieToSearch" type="text" class="form-control" name="setSearch" placeholder="Nome">
+      <input [(ngModel)]="movieToSearch" type="text"  (keyup.enter)="searchMovieApi()" class="form-control" name="setSearch" placeholder="Name">
     </div>
-    <button style="margin-top: 10px;" class="btn btn-primary col-md-2" type="button" (click)="searchMovieApi()">Buscar</button>
+    <button style="margin-top: 10px;" class="btn btn-primary col-md-2" type="submit" (click)="searchMovieApi()">Search</button>
 </form>
 
-<app-movie-display [movies]="movies"></app-movie-display>
+<div *ngIf="spinnerActive" class="spinner">
+  <mat-spinner ></mat-spinner>
+</div>
+<app-movie-display *ngIf="!spinnerActive" [movies]="movies"></app-movie-display>
 
-<div *ngIf="totalPages > 1">
-  <button mat-raised-button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
-  <button mat-raised-button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+<div style="text-align: center; margin-bottom: 5vh;" *ngIf="totalPages > 1">
+  <button class="btn btn-primary" style="margin-right: 5px;" (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <button class="btn btn-primary"  (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
 </div>

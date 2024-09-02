@@ -1,14 +1,20 @@
-<div style="text-align: center; padding-top: 30px;"><button *ngIf="removeFlag" class="btn btn-primary" type="button" ngxClipboard  [cbContent]="getSharedLink()">Gerar link compartilhável</button></div>
-<div class="row" style=" margin-top: 30px; justify-content: center;">
-    <div class="block col-xl-2 col-lg-3 col-sm-5" *ngFor="let movie of movies; let i = index">
-        <div class="card btn" (click)="goToMovieDetails(i)">
-            <img *ngIf="movie.poster_path" class="card-img-top" [src]= '"https://image.tmdb.org/t/p/original/"+ movie.poster_path' alt="Card image cap">
-            <div class="card-body row" style="text-align: left;">
-              <h5 class="card-title col-md-12">{{movie.title}} ({{movie.release_date.slice(0,4)}})</h5>
-              <div  class="removebutton">
-                <div *ngIf="removeFlag" class="btn btn-primary remove" (click)="removeMovie($event,i)"><mat-icon >close</mat-icon></div>
+<div *ngIf="spinnerActive" class="spinner">
+  <mat-spinner ></mat-spinner>
+</div>
+<div *ngIf="!spinnerActive">
+  <div  class="text"><button *ngIf="removeFlag" class="btn btn-primary" type="button" ngxClipboard  [cbContent]="getSharedLink()">Get shareable link</button></div>
+  <div class="row" style=" margin-top: 30px; justify-content: center;">
+      <div class="block col-xl-2 col-lg-3 col-sm-5" *ngFor="let movie of movies; let i = index">
+          <div class="card btn" (click)="goToMovieDetails(i)">
+              <img *ngIf="movie.poster_path" class="card-img-top" [src]= '"https://image.tmdb.org/t/p/w400/"+ movie.poster_path' alt="Card image cap">
+              <div class="card-body row" style="text-align: left;">
+                <h5 class="card-title col-md-12">{{movie.title}} ({{movie.release_date.slice(0,4)}})</h5>
+                <div  class="removebutton">
+                  <div *ngIf="removeFlag" class="btn btn-primary remove" (click)="removeMovie($event,i)"><mat-icon >close</mat-icon></div>
+                </div>
               </div>
-            </div>
-        </div>
-    </div>
+          </div>
+      </div>
+  </div>
+  <div class="text" style="color: white;"  *ngIf="currentUrl!='/' && movies.length == 0"><p>No movies found</p></div>
 </div>

@@ -27,12 +27,15 @@ export class MovieDetailComponent implements OnInit{
 
   isClicked = false;
 
+  spinnerActive = false;
+
   constructor(private route: ActivatedRoute, private tmdbService: TmdbService, private authService: AuthService) {}
 
   ngOnInit() {
     const movieId = this.route.snapshot.paramMap.get('id');
     if (movieId)
     {
+      this.spinnerActive = true;
       this.tmdbService.getMovieDetails(movieId).subscribe(([movieDetails, movieCredits]) => {
         console.log(movieDetails);
         console.log(movieCredits);
@@ -42,6 +45,7 @@ export class MovieDetailComponent implements OnInit{
         if (localStorage.getItem('token')){
           this.checkIfMovieIsFavorited(); 
         }
+        this.spinnerActive = false;
       });
     }
   }

@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { PublicComponent } from './public/public.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ClipboardModule } from 'ngx-clipboard';
     AppRoutingModule,
     FormsModule,
     MatIconModule,
-    ClipboardModule
+    ClipboardModule,
+    MatProgressSpinnerModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

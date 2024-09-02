@@ -6,6 +6,11 @@
     color: #c2c2c2;
 }
 
+.text{
+    text-align: center; 
+    padding-top: 30px;
+}
+
 .block{
     margin-bottom: 80px;
     margin-left: 5px;
