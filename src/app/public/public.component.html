@@ -1,1 +1,4 @@
-<app-movie-display [movies]="movies"></app-movie-display>
+<div *ngIf="spinnerActive" class="spinner">
+    <mat-spinner ></mat-spinner>
+</div>
+<app-movie-display *ngIf="!spinnerActive"  [movies]="movies"></app-movie-display>

@@ -10,15 +10,20 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   username = '';
   password = '';
+  spinnerActive = false;
 
   constructor(private authService: AuthService ,  private router: Router) { }
 
   register() {
+    this.spinnerActive = true;
     this.authService.register(this.username, this.password).subscribe(
       response => {
         console.log('User registered successfully', response)
         this.router.navigate(['/login']); 
-      },error => console.error('Registration failed', error)
+      },error => {
+        console.error('Registration failed', error)
+        this.spinnerActive = false;
+      }
     );
   }
 }

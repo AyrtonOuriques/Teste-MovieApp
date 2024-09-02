@@ -10,6 +10,7 @@
     background-position:center;
 } 
 
+
 html {
     font-size : 1.25rem;
 }
@@ -17,6 +18,10 @@ html {
 .btn{
     transition: all 0.3s ease 0s;
 
+}
+
+.spinner{
+    display:flex; justify-content: center; margin-top: 5vh;
 }
 
 .btn:hover{

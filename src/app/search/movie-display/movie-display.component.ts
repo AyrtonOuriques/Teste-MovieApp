@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-movie-display',
@@ -10,41 +11,51 @@ import { AuthService } from '../../auth.service';
 export class MovieDisplayComponent implements OnInit {
   @Input() movies: any[] = [];
   removeFlag: number = 0;
+  spinnerActive = false;
+  currentUrl = '';
 
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-
-    if (this.router.url === '/favorite-movies') {
-      this.removeFlag = 1;
-      this.authService.getFavoriteMovies().subscribe(
-        favoriteMovies => {
-          console.log(favoriteMovies)
-          this.movies = favoriteMovies;
-        },
-        error => {
-          console.error('Failed to fetch favorite movies', error);
-        }
-      );
+    this.currentUrl = this.router.url
+    if ( this.currentUrl  === '/favorite-movies') {
+      this.getFavoriteMovies();
     }
+  }
+
+  getFavoriteMovies(){
+    this.spinnerActive = true;
+    this.removeFlag = 1;
+    this.authService.getFavoriteMovies()
+    .pipe(finalize(() => this.spinnerActive = false))
+    .subscribe(
+      favoriteMovies => {
+        console.log(favoriteMovies)
+        this.movies = favoriteMovies;
+      },
+      error => {
+        console.error('Failed to fetch favorite movies', error);
+      }
+    );
   }
   
   removeMovie(event: Event, index: number) {
-    console.log(this.movies[index].movieId)
+    this.spinnerActive = true;
     event.stopPropagation();
     this.authService.removeFavoriteMovie(this.movies[index].id).subscribe(
       response => {
         console.log('Movie removed from favorites', response);
-        location.reload()
+        this.getFavoriteMovies();
       },
       error => {
         console.error('Failed to remove movie from favorites', error);
+        this.spinnerActive = false;
       }
     );
   }
 
   goToMovieDetails(index: number) {
-    if (this.router.url === '/favorite-movies' || this.router.url.startsWith('/public/')) {
+    if (this.currentUrl=== '/favorite-movies' || this.currentUrl.startsWith('/public/')) {
       this.router.navigate(['/movie',  this.movies[index].movieId]);
     }
     else{
