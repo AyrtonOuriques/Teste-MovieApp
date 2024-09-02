@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit{
 
   isAuthenticated = false;
-  
+  currentUser: string | null = null;
+
   constructor( private authService: AuthService,  private router: Router) {}
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit{
         this.isAuthenticated = isAuthenticated;
       }
     );
+    this.currentUser = this.authService.getCurrentUserName();
   }
 
   goToHomePage() {

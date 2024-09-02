@@ -12,6 +12,8 @@ export class SearchComponent implements OnInit {
   movies: any[] = [];
   totalPages: number = 0;
   currentPage: number = 1;
+  spinnerActive = false;
+  
 
   constructor(private tmdbService: TmdbService, private router: Router, private route: ActivatedRoute) {}
 
@@ -25,11 +27,13 @@ export class SearchComponent implements OnInit {
   }
 
   searchMovieApi() {
+    this.spinnerActive = true;
     this.tmdbService.searchMovies(this.movieToSearch, this.currentPage).subscribe((data) => {
       console.log(data);
       this.movies = data.results;
       this.currentPage = data.page;
       this.totalPages = data.total_pages;
+      this.spinnerActive = false;
     });
     this.router.navigate(['/search', this.movieToSearch]);
   }

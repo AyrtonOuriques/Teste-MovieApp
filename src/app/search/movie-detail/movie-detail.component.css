@@ -97,6 +97,7 @@
 
 .heart {
     display: inline-block;
+    margin-top: 2.5vh;
     margin-left: 5vw;
     width: 50px;
     height: 30px;
