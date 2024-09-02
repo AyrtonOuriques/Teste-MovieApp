@@ -26,7 +26,8 @@ export class AuthService {
     const token = localStorage.getItem('token');
     return {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`,
+        'ngrok-skip-browser-warning': '111'
       })
     };
   }
@@ -68,7 +69,11 @@ export class AuthService {
   }
 
   getPublicFavoriteMovies(username: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/public-favorite-movies/${username}/`);
+    return this.http.get(`${this.apiUrl}/public-favorite-movies/${username}/` , {
+      headers: new HttpHeaders({
+        'ngrok-skip-browser-warning': '111'
+      })
+    });
   }
 
   getFavoriteMovies(): Observable<any> {

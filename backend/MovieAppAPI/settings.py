@@ -145,9 +145,14 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),  # Access token valid for 15 minutes
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),     # Refresh token valid for 7 days
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15), 
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),     
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+CORS_ALLOW_HEADERS = [
+    'ngrok-skip-browser-warning',  
+    'Authorization',  
+]
