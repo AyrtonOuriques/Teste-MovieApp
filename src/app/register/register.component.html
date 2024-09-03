@@ -1,6 +1,9 @@
 <div *ngIf="spinnerActive" class="spinner">
   <mat-spinner ></mat-spinner>
 </div>
+<div *ngIf="error" class="alert alert-danger col-md-12">
+  {{error}}
+</div>
 <div *ngIf="!spinnerActive" class="login-container">
   <form>
     <div>
@@ -10,6 +13,10 @@
     <div>
       <label for="password">Choose Password</label>
       <input  [(ngModel)]="password" type="password" name="password">
+    </div>
+    <div>
+      <label for="password">Comfirm Password</label>
+      <input  [(ngModel)]="confirmPassword" type="password" name="password">
     </div>
     <button class="btn btn-primary" type="submit" (click)="register()">Register</button>
   </form>

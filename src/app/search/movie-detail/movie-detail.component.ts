@@ -1,5 +1,5 @@
 import { Component , OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TmdbService } from '../../tmdb.service';
 import { AuthService } from '../../auth.service';
 
@@ -52,15 +52,15 @@ export class MovieDetailComponent implements OnInit{
 
 
   getMovieGenres() {
-    return this.movieDetails.genres.map((element: any) => element.name);
+    return this.movieDetails.genres.map((element: any) => element?.name);
   }
 
   getMovieCast() {
-    return this.movieCredits.cast.slice(0, 3).map((element: any) => element.name);
+    return this.movieCredits.cast.slice(0, 3).map((element: any) => element?.name);
   }
 
   getMovieDirector() {
-    return this.movieCredits.crew.find((element: any) => element.job === "Director").name
+    return this.movieCredits.crew.find((element: any) => element.job === "Director")?.name
   }
 
 

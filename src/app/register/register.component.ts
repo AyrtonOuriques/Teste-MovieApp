@@ -10,20 +10,30 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   username = '';
   password = '';
+  confirmPassword = '';
+  error = '';
   spinnerActive = false;
 
   constructor(private authService: AuthService ,  private router: Router) { }
 
   register() {
-    this.spinnerActive = true;
-    this.authService.register(this.username, this.password).subscribe(
-      response => {
-        console.log('User registered successfully', response)
-        this.router.navigate(['/login']); 
-      },error => {
-        console.error('Registration failed', error)
-        this.spinnerActive = false;
-      }
-    );
+    if(this.password != this.confirmPassword)
+    {
+      this.error = 'Passwords do not match.'
+    }
+    else{
+      this.error = ''
+      this.spinnerActive = true;
+      this.authService.register(this.username, this.password).subscribe(
+        response => {
+          console.log('User registered successfully', response)
+          this.router.navigate(['/login']); 
+        },error => {
+          console.error('Registration failed', error)
+          this.error = error.error.username;
+          this.spinnerActive = false;
+        }
+      );
+    }
   }
 }
