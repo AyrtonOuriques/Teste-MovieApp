@@ -13,7 +13,7 @@ export interface JwtResponse {
 })
 export class AuthService {
 
-  private apiUrl = process.env['NEXT_PUBLIC_API_URL'];;
+  private apiUrl = 'https://emerging-dynamic-opossum.ngrok-free.app';
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
