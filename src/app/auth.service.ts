@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, switchMap, tap, throwError } from 'rxjs';
-import { environment } from './environment';
 
 export interface JwtResponse {
   access: string;
@@ -14,7 +13,7 @@ export interface JwtResponse {
 })
 export class AuthService {
 
-  private apiUrl = environment.apiUrl || process.env['API_URL'];;
+  private apiUrl = process.env['API_URL'];;
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
