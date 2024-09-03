@@ -54,14 +54,11 @@ export class AuthService {
       tap(response => {
         localStorage.setItem('token', response.access); 
         localStorage.setItem('refresh_token', response.refresh);
+        localStorage.setItem(this.currentUser, username);
         this.isAuthenticatedSubject.next(true);
         this.router.navigate([returnUrl]); 
       })
     );
-  }
-
-  setCurrentUser(user: string) {
-    localStorage.setItem(this.currentUser, user);
   }
 
   getCurrentUserName(): string | null{

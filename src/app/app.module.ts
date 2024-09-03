@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { PublicComponent } from './public/public.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule,
     MatIconModule,
     ClipboardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTooltipModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
