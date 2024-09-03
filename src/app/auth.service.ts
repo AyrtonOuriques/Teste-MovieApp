@@ -13,7 +13,7 @@ export interface JwtResponse {
 })
 export class AuthService {
 
-  private apiUrl = process.env['API_URL'];;
+  private apiUrl = process.env.API_URL;;
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
   isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
