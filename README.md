@@ -15,8 +15,8 @@ Features:
 
 Para executar localmente:
 
-# Instalação
--Backend (Django)
+## Instalação
+### Backend (Django)
 
 git clone https://github.com/AyrtonOuriques/Teste-MovieApp.git
 
@@ -34,7 +34,7 @@ python manage.py createsuperuser
 
 python manage.py runserver
 
--Frontend (Angular)
+### Frontend (Angular)
 
 Vá para o diretório principal
 
@@ -42,9 +42,9 @@ npm install
 
 ng serve
 
-# Configuração
+## Configuração
 
--Backend (Django)
+### Backend (Django)
 
 django-admin shell
 
@@ -54,7 +54,22 @@ get_random_secret_key()
 
 Use esse chave e coloque-a no arquivo settings.py na váriavel SECRET-KEY.
 
--Frontend (Angular)
+### Frontend (Angular)
 
 No arquivo auth.service.ts, substitua   "private apiUrl = 'https://emerging-dynamic-opossum.ngrok-free.app';" 
 por "private apiUrl = 'https://127.0.0.1/8000';" 
+
+## Testing
+
+### Backend (Django)
+
+cd Teste-MovieApp/backend
+
+python manage.py test
+
+
+### Frontend (Angular)
+
+Vá para o diretório principal
+
+ng test
