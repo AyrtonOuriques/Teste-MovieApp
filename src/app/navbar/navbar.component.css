@@ -2,7 +2,7 @@
     background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(75,0,0,1) 100%);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    
+    height: 15vh;
 }
 
 .btn-primary{
@@ -36,3 +36,11 @@
     }
 
 }
+
+@media (max-height: 769px) {
+    .navbar{
+        height: 20vh;
+    }
+
+}
+
