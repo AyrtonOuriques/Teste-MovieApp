@@ -3,9 +3,9 @@
  
 Features:
 
--Autenticação de usuários (login e registro)
+-Autenticação de usuários (login e cadastro)
 
--Busca de filmes utilizando a API TMDB
+-Busca de filmes utilizando a API do TMDB
 
 -Visualização de detalhes dos filmes
 
