@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-please-change")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'MovieAppAPI.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "mydatabase.sqlite3"),
+        "NAME": "mydatabase",
     }
 }
 
@@ -143,12 +143,9 @@ REST_FRAMEWORK = {
 
 # CORS settingss
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
-    'https://teste-movie-app.vercel.app',
-]
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200', 'https://teste-movie-app.vercel.app'
+)
 
 CSRF_TRUSTED_ORIGINS = ['https://teste-movie-app.vercel.app']
 

@@ -26,4 +26,8 @@ COPY . .
 RUN python manage.py collectstatic --noinput || true
 
 # Run the app using Gunicorn
-CMD ["gunicorn", "MovieAppAPI.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD sh -c  "
+        python manage.py migrate &&
+        python manage.py createsuperuser --noinput || true &&
+        gunicorn MovieAppAPI.wsgi:application --bind 0.0.0.0:8000 --workers 3
+      "
