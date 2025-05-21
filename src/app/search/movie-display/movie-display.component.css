@@ -18,8 +18,9 @@
 }
 
 .btn-primary{
-    background-image: url("../../../wood.jpg");
     border: 0;
+    background-color: #2C2727;
+    border-radius: 12px;
 }
 
 .btn:hover{
