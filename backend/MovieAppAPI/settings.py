@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 from datetime import timedelta
+from corsheaders.defaults import default_headers
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,13 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key-please-change")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'teste-movie-app.vercel.app' , 'emerging-dynamic-opossum.ngrok-free.app']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'teste-movie-app.vercel.app',
+    'emerging-dynamic-opossum.ngrok-free.app',
+    'teste-movieapp-backend.onrender.com',  
+]
 
 
 # Application definition
@@ -140,6 +147,8 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200', 'https://teste-movie-app.vercel.app'
 )
 
+CSRF_TRUSTED_ORIGINS = ['https://teste-movie-app.vercel.app']
+
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -151,8 +160,6 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-CORS_ALLOW_HEADERS = [
-    'content-type',
-    'ngrok-skip-browser-warning',  
-    'Authorization',  
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'ngrok-skip-browser-warning',
 ]
