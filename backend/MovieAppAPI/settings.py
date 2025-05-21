@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'MovieAppAPI.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
+        "NAME": os.path.join(BASE_DIR, "mydatabase.sqlite3"),
     }
 }
 
@@ -143,9 +143,12 @@ REST_FRAMEWORK = {
 
 # CORS settingss
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:4200', 'https://teste-movie-app.vercel.app'
-)
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+    'https://teste-movie-app.vercel.app',
+]
 
 CSRF_TRUSTED_ORIGINS = ['https://teste-movie-app.vercel.app']
 
