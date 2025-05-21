@@ -11,7 +11,7 @@ import { AuthService } from '../../auth.service';
     :host {
       display: flex;
       justify-content: center;
-      height: 85vh;
+      height: 80vh;
     }
   `]
   

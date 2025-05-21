@@ -12,11 +12,14 @@
 .btn{
     transition: all 0.3s ease 0s;
     background-color: transparent;
+    margin-top: 10px;
+    width: 58px;
+    height: 48px;
 }
 
 
 .btn-primary{
-    background-color: #9b0000;
+    background-color: #670802;
     border: 0;
 }
 

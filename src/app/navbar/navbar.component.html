@@ -1,9 +1,20 @@
 <nav class="navbar">
-    <button class="btn btn-primary " type="button" (click)="goToHomePage()"><mat-icon>home</mat-icon></button>
-    <button class="btn btn-primary  " type="button" (click)="goToFavoriteList()">Favorite movies</button>
-    <div *ngIf="isAuthenticated" style="margin-bottom: 32px;"> 
-        <p class="text">Logged in as {{currentUser}}</p>
-        <button  class="btn btn-primary " type="button" (click)="logout()">Logout</button>
-    </div>
-    <button *ngIf="!isAuthenticated" class="btn btn-primary " type="button" (click)="login()">Login</button>
+  <button class="btn btn-primary" type="button" (click)="goToHomePage()">
+    <mat-icon>home</mat-icon>  <br>Home
+  </button>
+
+  <button class="btn btn-primary" type="button" (click)="goToFavoriteList()">
+    <mat-icon>favorite</mat-icon> <br>Favorite Movies
+  </button>
+
+  <div *ngIf="isAuthenticated" style="margin-bottom: 32px;">
+    <p class="text">Logged in as {{ currentUser }}</p>
+    <button class="btn btn-primary" type="button" (click)="logout()">
+      <mat-icon>logout</mat-icon>  <br>Logout
+    </button>
+  </div>
+
+  <button *ngIf="!isAuthenticated" class="btn btn-primary" type="button" (click)="login()">
+    <mat-icon>login</mat-icon>  <br>Login
+  </button>
 </nav>
