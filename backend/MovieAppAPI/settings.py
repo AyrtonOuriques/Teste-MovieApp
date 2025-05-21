@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app' , 'emerging-dynamic-opossum.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'teste-movie-app.vercel.app' , 'emerging-dynamic-opossum.ngrok-free.app']
 
 
 # Application definition
@@ -138,6 +138,9 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200', 'https://teste-movie-app.vercel.app'
 )
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15), 
