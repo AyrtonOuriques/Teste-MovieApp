@@ -18,12 +18,23 @@ export class SearchComponent implements OnInit {
   constructor(private tmdbService: TmdbService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.defaultPopularMovies()
     const query = this.route.snapshot.paramMap.get('query');
     if (query != null) {
       this.movieToSearch = query;
       this.router.navigate(['/search', this.movieToSearch]);
       this.searchMovieApi();
     }
+  }
+
+  defaultPopularMovies(){
+    this.spinnerActive = true;
+    this.tmdbService.getPopulars(this.currentPage).subscribe((data) => {
+      this.movies = data.results;
+      this.currentPage = data.page;
+      this.totalPages = 0;
+      this.spinnerActive = false;
+    })
   }
 
   searchMovieApi() {

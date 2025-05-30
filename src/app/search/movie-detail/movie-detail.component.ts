@@ -11,7 +11,6 @@ import { AuthService } from '../../auth.service';
     :host {
       display: flex;
       justify-content: center;
-      height: 80vh;
     }
   `]
   
@@ -20,6 +19,7 @@ export class MovieDetailComponent implements OnInit{
 
   movieDetails: any;
   movieCredits: any;
+  whereToWatch: any;
 
   vote_average: number = 0;
 
@@ -36,9 +36,9 @@ export class MovieDetailComponent implements OnInit{
     if (movieId)
     {
       this.spinnerActive = true;
-      this.tmdbService.getMovieDetails(movieId).subscribe(([movieDetails, movieCredits]) => {
-        console.log(movieDetails);
-        console.log(movieCredits);
+      this.tmdbService.getMovieDetails(movieId).subscribe(([movieDetails, movieCredits, whereToWatch]) => {
+        console.log(whereToWatch.results['IE'].flatrate)
+        this.whereToWatch = whereToWatch.results['IE'].flatrate
         this.movieDetails = movieDetails;
         this.movieCredits = movieCredits;
         this.vote_average = Math.round(movieDetails.vote_average*10);

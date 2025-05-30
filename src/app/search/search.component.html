@@ -15,7 +15,10 @@
 <app-movie-display *ngIf="!spinnerActive" [movies]="movies"></app-movie-display>
 
 <div style="text-align: center; margin-bottom: 5vh;" *ngIf="totalPages > 1">
-  <button class="btn btn-primary" style="margin-right: 5px;" (click)="prevPage()"
-    [disabled]="currentPage === 1">Previous</button>
-  <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  <button class="btn btn-primary" style="margin-right: 5px;" (click)="prevPage()" [disabled]="currentPage === 1">
+    <mat-icon style="padding-top: 4px;">chevron_left</mat-icon>
+  </button>
+  <button class="btn btn-primary" (click)="nextPage()" [disabled]="currentPage === totalPages">
+    <mat-icon style="padding-top: 4px;">chevron_right</mat-icon>
+  </button>
 </div>
