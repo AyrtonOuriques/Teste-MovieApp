@@ -12,8 +12,19 @@
         <div class="col-md-6">
             <div>
                 <div class = "text">
-                    <div  >
-                        <h3>{{movieDetails.title}} ({{movieDetails.release_date.slice(0,4)}})</h3>
+                    <div >
+                        <div style="display: flex; align-items: center;">
+                            <h3>{{movieDetails.title}} ({{movieDetails.release_date.slice(0,4)}})</h3>
+                            <div class="streaming-logos" *ngIf="whereToWatch && whereToWatch.length > 0">
+                                <div class="streaming-logos-container" *ngFor="let service of whereToWatch">
+                                    <img 
+                                     [src]='"https://image.tmdb.org/t/p/original/"+ service.logo_path' 
+                                     [matTooltip]="service.provider_name" 
+                                     [alt]="service.provider_name"
+                                     class="streaming-logo" />
+                                </div>
+                            </div>
+                        </div>
                         <h5>{{movieDetails.release_date}} ● {{movieDetails.runtime}} Min ●  {{getMovieGenres()}}</h5>
                     </div>
                     <p >{{movieDetails.tagline}}</p>

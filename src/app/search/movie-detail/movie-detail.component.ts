@@ -37,8 +37,10 @@ export class MovieDetailComponent implements OnInit{
     {
       this.spinnerActive = true;
       this.tmdbService.getMovieDetails(movieId).subscribe(([movieDetails, movieCredits, whereToWatch]) => {
-        console.log(whereToWatch.results['IE'].flatrate)
-        this.whereToWatch = whereToWatch.results['IE'].flatrate
+        if (whereToWatch.results['IE']){
+          console.log(whereToWatch.results['IE'].flatrate)
+          this.whereToWatch = whereToWatch.results['IE'].flatrate;
+        }
         this.movieDetails = movieDetails;
         this.movieCredits = movieCredits;
         this.vote_average = Math.round(movieDetails.vote_average*10);

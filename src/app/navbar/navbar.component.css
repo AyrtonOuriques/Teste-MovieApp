@@ -2,7 +2,7 @@
     background: #670802;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 180px;
+    height: 120px;
     display: flex;
     justify-content: space-around;
 }
@@ -18,7 +18,7 @@
 }
 
 .btn{
-    width: 160px;
+    width: 102px;
 }
 
 .text{
@@ -27,9 +27,9 @@
 }
 
 .mat-icon{
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
 }
 
 @media (max-width: 576px) {
@@ -39,10 +39,4 @@
 
 }
 
-@media (max-height: 769px) {
-    .navbar{
-        height: 20vh;
-    }
-
-}
 
